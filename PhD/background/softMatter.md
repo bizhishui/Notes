@@ -35,7 +35,7 @@
     + $\gamma$: la tension \text{m\'{e}canique}
     + $\eta_{i,e}$: les \text{viscosit\'es} dynamiques des fluides interne et externe
     + $R=\left(\frac{3V}{4\pi}\right)^{1/3}$ la taille \text{caract\'{e}ristique} de \text{v\'{e}sicule}
-    + $\dot{\varepsilon}$[$s^{-1}$]: $\overrightarrow{V}^{\infty}=\dot{\varepsilon}(x\overrightarrow{e}_x-y\overrightarrow{e}_y)$, le taux d'\text{\'{e}longation}, ***在程序的输入文件为Gamma_dot***
+    + $\dot{\varepsilon}$[$s^{-1}$]: $\overrightarrow{V}^{\infty}=\dot{\varepsilon}(x\overrightarrow{e}_x-y\overrightarrow{e}_y)$, le taux d'\text{\'{e}longation}, ***在程序的输入文件为Gamma_dot***(Flow strength)
     + $v$ et $\Delta$
     + $\lambda=\frac{\eta_{i}}{\eta_{e}}$: le contraste de \text{viscosit\'{e}}
     + $C_a=\frac{\eta_e\dot{\varepsilon}R^3}{\kappa}$: le nombre capillaire qui mesure le rapport des forces viequeuses sur la force de flexion, 当$C_a$很小时，vesicule处于热力学平衡态。
@@ -43,3 +43,25 @@
 - 特征时间定义
     + 有流动时：用le taux d'\text{\'{e}longation}或者 le taux de cisaillement $\dot{\varepsilon}$定义，$\tau=\dot{\varepsilon}^{-1}$
     + 无流动时：le seul temps \text{caract\'{e}ristique} du \text{probl\`{e}me} est **le temps visqueux**, $\tau=\frac{\eta R^3}{\kappa}$ 
+
+## Drop ##
+- Some typical numbers of droplet:
+    + radius $a \sim 10-100 \mu m$
+    + characteristic velocity $u_0 \sim 100 \mu m\ s^{-1}$
+    + density $\rho\sim 10^3 kg\ m^{-3}$
+    + dynamic viscosity $\mu \sim 100\ mPa\ s$
+    + Reynolds number Re $\sim\ 10^{-4}$, it can reach $10^{-2}$ for water 
+
+- Some typical parameters
+    + $\gamma$: surface tensoin
+    + $\mu_s(\mu_d)$: shear (dilational) surface viscosity
+- Surface stress tensor $\overline{\mathbf{\sigma}}_s$ (Boussinesq-Scriven stress tensor)
+  \begin{equation}
+    \overline{\mathbf{\sigma}}_s=\gamma \overline{\mathbf{P}}+(\mu_d-\mu_s)\varTheta \overline{\mathbf{P}} + 2\mu_s \overline{\mathbf{e}}
+    \label{Boussinesq_Scriven}
+  \end{equation}
+  where $\overline{\mathbf{P}}$ is the surface projection tensor, $\varTheta$ is the surface rate of dilation and $\overline{\mathbf{e}}$ is the surface rate of deformation rate. They are defined as
+  \begin{equation}
+    \overline{\mathbf{P}}=\overline{\mathbf{I}}-\mathbf{n}\mathbf{n}^T,\ \overline{\mathbf{e}}=\frac{1}{2}\overline{\mathbf{P}}(\nabla_s\mathbf{v}^s+(\nabla_s\mathbf{v}^s)^T)\overline{\mathbf{P}}\ \text{and}\ \varTheta=\overline{\mathbf{P}}\colon\nabla_s\mathbf{v}^s.
+  \end{equation}
+  where $\mathbf{n}$ is the unit outward normal vector.
