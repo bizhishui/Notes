@@ -29,3 +29,17 @@
     F_k=\frac{\kappa}{2}\int_{S}\left(2H-C_0\right)^2dS
   \end{equation}
   whre $\kappa$ is bending modulus, $H,C$ is the mean and [spontaneous](https://tel.archives-ouvertes.fr/tel-00005981/document)($C=0$ \text{or} $1/R_0$) curvature.
+
+- Somes adimensional numbers
+    + $\kappa$: bending modulus
+    + $\gamma$: la tension \text{m\'{e}canique}
+    + $\eta_{i,e}$: les \text{viscosit\'es} dynamiques des fluides interne et externe
+    + $R=\left(\frac{3V}{4\pi}\right)^{1/3}$ la taille \text{caract\'{e}ristique} de \text{v\'{e}sicule}
+    + $\dot{\varepsilon}$[$s^{-1}$]: $\overrightarrow{V}^{\infty}=\dot{\varepsilon}(x\overrightarrow{e}_x-y\overrightarrow{e}_y)$, le taux d'\text{\'{e}longation}, ***在程序的输入文件为Gamma_dot***
+    + $v$ et $\Delta$
+    + $\lambda=\frac{\eta_{i}}{\eta_{e}}$: le contraste de \text{viscosit\'{e}}
+    + $C_a=\frac{\eta_e\dot{\varepsilon}R^3}{\kappa}$: le nombre capillaire qui mesure le rapport des forces viequeuses sur la force de flexion, 当$C_a$很小时，vesicule处于热力学平衡态。
+
+- 特征时间定义
+    + 有流动时：用le taux d'\text{\'{e}longation}或者 le taux de cisaillement $\dot{\varepsilon}$定义，$\tau=\dot{\varepsilon}^{-1}$
+    + 无流动时：le seul temps \text{caract\'{e}ristique} du \text{probl\`{e}me} est **le temps visqueux**, $\tau=\frac{\eta R^3}{\kappa}$ 
