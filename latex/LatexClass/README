@@ -1,0 +1,6 @@
+sudo mktexlsr - make the .cls and .sty change avaiable
+
+notes.cls: a class used for personal notes
+syntax.sty: a package can used for c++ and python code in latex
+myAddPack.sty: a package contains the frequently used packages
+beamerthemeepyt.sty: a simple beamer model, can be used for short presentation

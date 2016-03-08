@@ -1,0 +1,69 @@
+\documentclass[10pt, letterpaper]{notes}
+\setlength\parindent{0pt}
+
+\name{May Lynn Forssen}
+\subject{Notes}
+\date{\today}
+
+\begin{document}
+\topic{\LaTeX{} Notes Class}
+\subtopic{How to take notes}
+This package should provide many commands and environments that the average student may want when taking notes in class. This includes color coding, highlighting, and emphasizing things in a consistent way.
+\\
+\\
+You can highlight important things like this:
+
+\begin{verbatim}
+\begin{important}
+    Important stuff goes here!
+\end{important}
+\end{verbatim}
+
+which would look like this:
+
+\begin{important}
+    Important stuff goes here!
+\end{important}
+\subtopic{Theorems and Proofs}
+Theorems and proofs are given ther own special highlighting, as follows. They can be made with
+\begin{verbatim}
+\begin{thm}{name of theorem}
+...
+\end{thm}
+
+\begin{proof}
+...
+\end{proof}
+\end{verbatim}
+Here is a sample theorem box:
+\begin{thm}{Theorem}
+\LaTeX{} is a high-quality typesetting system; it includes features designed for the production of technical and scientific documentation. \LaTeX{} is the de facto standard for the communication and publication of scientific documents. \LaTeX{} is available as \key{free software}. 
+\end{thm}
+And here is a sample proof box:
+\begin{proof}
+To produce this in most typesetting or word-processing systems, the author would have to decide what layout to use, so would select (say) 18pt Times Roman for the title, 12pt Times Italic for the name, and so on. This has two results: authors wasting their time with designs; and a lot of badly designed documents! 
+\end{proof}
+
+\begin{definition}{Definition}
+\key{Computer science} (abbreviated CS or CompSci) is the scientific and practical approach to computation and its applications. It is the systematic study of the feasibility, structure, expression, and mechanization of the methodical processes (or algorithms) that underlie the acquisition, representation, processing, storage, communication of, and access to information, whether such information is encoded in bits and bytes in a computer memory or transcribed engines and protein structures in a human cell. A \key{computer scientist} specializes in the theory of computation and the design of computational systems.
+\end{definition}
+
+\bul{Algorithms}
+
+\bul{Programming Languages
+\bul{Python}
+\bul{C/C++}
+\bul{Java}
+}
+
+\bul{Operating Systems}
+
+\bul{Machine Learning}
+
+Almost any editing program or word-processor may be used to write LaTeX documents, although there are many editing programs written specially to make using \LaTeX easy. Interactive websites and smartphone apps are increasingly (2013) generalizing and simplifying the tasks of writing documents with \LaTeX.
+\begin{quote}
+One of the hallmarks of LaTeX as a piece of software and a document preparation system is its maturity. It has been used intensively as a writing environment of first choice by a large and diverse community of writers for many decades. As such, it has evolved into an extremely effective and powerful writing tool.
+\end{quote}
+Like TeX, LaTeX started as a writing tool for mathematicians and computer scientists. But from early in its development it was also taken up by scholars who needed to write documents that included complex non-Latin scripts, such as Arabic, Sanskrit and Chinese. The extraordinary power of TeX and LaTeX to cope gracefully with complex languages and layouts remains unique even today. LaTeX is used for everything from business letters to multi-volume aircraft maintenance manuals, TV programme guides, critical editions of Asian classics, and projector presentations for conference talks.
+
+\end{document}

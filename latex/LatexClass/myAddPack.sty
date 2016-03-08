@@ -1,0 +1,67 @@
+\usepackage{ctex}
+\usepackage[super]{cite}
+%\usepackage[colorlinks]{hyperref}
+\usepackage{amsmath}
+\usepackage{amssymb}
+%\usepackage{xcolor}
+\numberwithin{equation}{section}
+\usepackage{indentfirst}
+\setlength{\parindent}{2em}
+\usepackage[toc,page,title,titletoc,header]{appendix}
+\usepackage{textcomp}
+\usepackage{graphicx}
+\graphicspath{{./fig/}} %图片路径设置
+\usepackage{subfigure}
+\usepackage{varwidth}
+\usepackage{float}
+\usepackage{enumerate}
+\usepackage{cases} %分段函数
+\bibliographystyle{unsrt}
+\renewcommand{\refname}{\centerline{参考文献}}
+\renewcommand{\figurename}{图}
+\renewcommand{\tablename}{表}
+\renewcommand{\abstractname}{\large{摘\ \ 要}}
+\usepackage[marginal]{footmisc} %脚注
+\usepackage{bm} %数学公式粗体
+\usepackage{cases} %分段数学公式
+
+\usepackage{wasysym}
+
+\newcommand{\tabincell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}} %表格内单元格内容强制换行
+\usepackage{longtable}  %long table more than one page
+\usepackage{ulem}   %uline,uwave,sout etc
+
+
+%% Hyperlinks
+\usepackage[usenames,dvipsnames]{color}                     
+\usepackage[%xetex, 
+	colorlinks=true,
+	urlcolor=BlueViolet, % external links
+        citecolor=BlueViolet, % citations
+        filecolor=BlueViolet, % local files
+	plainpages=false,
+  	pdfpagelabels,
+  	bookmarksnumbered,
+  	%pdftitle={\mytitle},
+  	%pdfauthor={\myauthor},
+  	%pdfkeywords={\mykeywords}
+  	]{hyperref}   
+
+%reduce the inter-line distance of the item (for itemize and enumerate)
+\makeatletter
+\def\enumerate{%
+ \ifnum \@enumdepth >\thr@@\@toodeep\else
+   \advance\@enumdepth\@ne
+   \edef\@enumctr{enum\romannumeral\the\@enumdepth}%
+     \expandafter
+     \list
+       \csname label\@enumctr\endcsname
+       {\usecounter\@enumctr\def\makelabel##1{\hss\llap{##1}}%
+         %\addtolength{\leftmargin}{5pt}
+         \addtolength{\parsep}{10pt}
+         %\addtolength{\rightmargin}{20pt} %%%%
+         \addtolength{\listparindent}{10pt} %%%%
+         \addtolength{\itemsep}{-18pt} %%%%
+         \addtolength{\topsep}{-20pt}} %%%%
+ \fi}
+\makeatother

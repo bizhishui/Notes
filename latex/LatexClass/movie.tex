@@ -1,0 +1,70 @@
+\documentclass{article}
+\usepackage{myAddPack}
+\usepackage{media9}
+
+% \usepackage[noplaybutton]{media9}
+% \usepackage{attachfile2}
+
+% \usepackage{geometry}
+% \geometry{verbose,letterpaper}
+\usepackage{movie15}
+
+
+% \renewcommand{\includemovie}[2][]{
+%     \includemedia[
+%         #1,
+%         activate=pageopen,transparent,
+%         addresource=#2.mp4,addresource=#2.png,
+%         flashvars={
+%             file=#2.mp4&image=#2.png&
+%             stretching=uniform&start=0&
+%             screencolor=white& %improves render in light backgrounds
+%             controlbar.position=over&controlbar.idlehide=true&
+%             autostart=true&repeat=always&smoothing=true
+%             %&bufferlength=10 % may improve repetition of short videos
+%         }
+%     ]{ % for disabled content (in most cases this is fallback)
+%         \begin{tabular}{ll}
+%             \mbox{
+%             %   \href{run:#2.mp4} % for not embedded fallback
+%                 \textattachfile[color={0 0 0}]{#2.mp4} % for embedded fallback
+%                 {\texttt{|\kern-.23em>}} % poor play button
+%             } & \raisebox{-\height}{\includegraphics[#1]{#2}}
+%         \end{tabular}
+%     }{player.swf}
+% }
+
+
+\begin{document}
+\section{Test movie}
+Just want insert some movie in the pdf file.
+
+%================USING media9, WORKS! BUT NEED SPECIAL PDF READER===============
+\begin{figure}[H]
+\centering
+ \includemedia[
+  label=vidA,
+  addresource=movie.swf,
+  activate=pageopen,
+  width=0.6\linewidth, height=0.536\linewidth,
+  flashvars={
+     source=movie.swf
+    &loop=true
+  }
+]{}{movie.swf}
+\end{figure}
+% \includemovie[width=5cm]{movie} 
+
+%================USING movie15, but can only work with pdflatex===============
+Using movie15, see for \href{http://pages.uoregon.edu/noeckel/PDFmovie.html}{reference} and \href{http://tex.stackexchange.com/questions/67663/did-anyone-succeed-in-playing-embedded-movies-inside-acrobat-in-linux}{also}.
+\begin{figure}[ht]
+\centering
+\includemovie[
+  poster,
+  text={\small(Loading ABC.avi)}
+%]{6cm}{6cm}{movie.swf}
+]{6cm}{6cm}{ABC.avi}
+\end{figure}
+
+
+\end{document}

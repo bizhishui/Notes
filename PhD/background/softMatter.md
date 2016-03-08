@@ -1,6 +1,8 @@
-# Some Notes for Soft Matter
+% Some Notes for Soft Matter
+% Jinming LYU
+% \today 
 
-## \text{V\'{e}sicule} ##
+# \text{V\'{e}sicule} #
 
 - Volume \text{r\'{e}duite}: 
   \begin{equation}
@@ -12,11 +14,11 @@
     S=R^2(4\pi+\Delta),\ \ \Delta\in [0,+\infty)
   \end{equation}
 
-- Relation between $v$ and $\Delta$:
+- Relation between $v$ and $\Delta$ (Figure. \ref{parameters_relation}):
   \begin{equation}
     v=\left(1+\Delta/4\pi\right)^{-3/2}
   \end{equation}
-  ![Lien entre $v$ et $\Delta$](./src/parameters_relation.png)
+  ![Lien entre $v$ et $\Delta$\label{parameters_relation}](./src/parameters_relation.png)
 
 - \text{L'incompressibilit\'{e} surfacique}:
   \begin{equation}
@@ -44,7 +46,7 @@
     + 有流动时：用le taux d'\text{\'{e}longation}或者 le taux de cisaillement $\dot{\varepsilon}$定义，$\tau=\dot{\varepsilon}^{-1}$
     + 无流动时：le seul temps \text{caract\'{e}ristique} du \text{probl\`{e}me} est **le temps visqueux**, $\tau=\frac{\eta R^3}{\kappa}$ 
 
-## Drop ##
+# Drop #
 - Some typical numbers of droplet:
     + radius $a \sim 10-100 \mu m$
     + characteristic velocity $u_0 \sim 100 \mu m\ s^{-1}$
@@ -55,6 +57,14 @@
 - Some typical parameters
     + $\gamma$: surface tensoin
     + $\mu_s(\mu_d)$: shear (dilational) surface viscosity
+    + $\lambda=\frac{\mu^i}{\mu^e}$ is the viscosity contrast
+    + $\dot{\varepsilon}$ is the shear rate
+    + $Ca=\frac{\mu^e \dot{\varepsilon}a}{\gamma}=\frac{\text{hydrodynamic stress}}{\text{the resistance of surface tension}}$ is the capillary (or Weber) number, where $a$ is the initial droplet radius
+    + $Bq_s=\frac{\mu_s}{\mu^e a}$ and $Bq_d=\frac{\mu_d}{\mu^e a}$ are the dimensionless Boussinesq numbers, characterizing *shear* and *dilational* surface viscosity respectively. When $Bq_s=Bq_d$, this single quantity is abbreviated by the Boussinesq number $Bq$. ***A droplet with $Bq=0$ is said to be \'clean\'***.
+    + $\beta=(Bq)(Ca)=\frac{\mu \dot{\varepsilon}}{\gamma}=\frac{\text{surface viscosity}}{\text{tension}}$
+    + $\tau=\dot{\varepsilon}^{-1}$ is the characteristic time
+    + $a$, the initial droplet radius (with initial sphere shape), is the characteristic length
+    + $\mu^e \dot{\varepsilon}$ is used to undimensionalize pressure and membrane stress.
 - Surface stress tensor $\overline{\mathbf{\sigma}}_s$ (Boussinesq-Scriven stress tensor)
   \begin{equation}
     \overline{\mathbf{\sigma}}_s=\gamma \overline{\mathbf{P}}+(\mu_d-\mu_s)\varTheta \overline{\mathbf{P}} + 2\mu_s \overline{\mathbf{e}}

@@ -1,0 +1,83 @@
+\ProvidesPackage{syntax}[11/21/2013]
+\NeedsTeXFormat{LaTeX2e}
+
+\RequirePackage[usenames,dvipsnames]{color}
+\RequirePackage{xcolor}
+\RequirePackage{l3regex,xparse,xstring}
+
+% color definitions
+\definecolor{stringcolor}{RGB}{245,140,0}
+
+\ExplSyntaxOn
+\tl_new:N \l_removedots_tl
+\tl_new:N \l_removedots_str
+\DeclareDocumentCommand{\syntax}{O{c++} +v}
+  {
+    \str_set:Nn \l_syntax_str {#2}
+
+    \IfEqCase{#1}{%
+        {c++}{%
+
+    %verbatim-making
+    \regex_replace_all:nnN { (\\)(\w) } {\c{textbackslash} \2 } \l_syntax_str
+    \regex_replace_all:nnN { (\_|\#|\{|\}|\&|\%|\h) } {\\ \1} \l_syntax_str
+    \regex_replace_all:nnN { (\S)(\v)(\v) } {\1\\\\ \\\\} \l_syntax_str
+    \regex_replace_all:nnN { (\S)(\v) } {\1\2\2} \l_syntax_str
+
+    % coloring for key words
+    \regex_replace_all:nnN { (\#)(include|define)(\W) } {\1 \cB\{ \c{color}\cB\{ Magenta \cE\} \2 \cE\} \3 } \l_syntax_str
+    \regex_replace_all:nnN { (\W)(int|float|long|double|struct|class|void|char|asm|auto|enum|template|typedef|union|unsigned|signed|short)(\W) } {\1 \cB\{ \c{slshape} \c{color}\cB\{ Cyan \cE\} \2 \cE\} \3 } \l_syntax_str
+    \regex_replace_all:nnN { (\W)(return|friend|namespace)(\W) } {\1 \cB\{ \c{color}\cB\{ Magenta \cE\} \2 \cE\} \3 } \l_syntax_str
+    \regex_replace_all:nnN { (\W)(using|for|else|if|break|new|delete|break|case|try|and|not|throw|switch|compl|const|const\_cast|dynamic\_cast|explicit|export|extern|or|typeid|continue|default|do|while|goto|inline|register|mutable|sizeof|static)(\W) } {\1 \cB\{ \c{color}\cB\{ Magenta \cE\} \2 \cE\} \3 } \l_syntax_str
+
+    % coloring for angle brackets and strings
+    \regex_replace_all:nnN { (include)(.*?)(>|\v) } {\1 \cB\{ \c{color}\cB\{ stringcolor \cE\}\cB\{ \2\3\4 \cE\}\cE\}} \l_syntax_str
+    \regex_replace_all:nnN { "(.*?)" } {\cB\{ \c{color}\cB\{ stringcolor \cE\} "\1" \cE\}} \l_syntax_str
+    \regex_replace_all:nnN { '(.*?)' } {\cB\{ \c{color}\cB\{ BurntOrange \cE\} '\1' \cE\}} \l_syntax_str
+
+    % coloring for comments
+    \regex_replace_all:nnN { (//)(.*?)(\v|\\\\) } {\cB\{ \c{color}\cB\{ OliveGreen \cE\} \1\2 \cE\} \3 } \l_syntax_str
+    \regex_replace_all:nnN { (/\*)(.*?)(\*/) } {\cB\{ \c{color}\cB\{ OliveGreen \cE\} \1\2\3 \cE\}} \l_syntax_str
+
+    % coloring for functions
+    \regex_replace_all:nnN { (\w*?)(\h*?)(\( .*? \)) } {\cB\{ \c{color}\cB\{ LimeGreen \cE\} \1 \cE\}\2\3} \l_syntax_str
+    }
+
+    {python}{%
+
+    %verbatim-making
+    \regex_replace_all:nnN { (\\)(\w) } {\c{textbackslash} \2 } \l_syntax_str
+    \regex_replace_all:nnN { (\_|\#|\{|\}|\&|\%|\h) } {\\ \1} \l_syntax_str
+    \regex_replace_all:nnN { (\S)(\v)(\v) } {\1\\\\ \\\\} \l_syntax_str
+    \regex_replace_all:nnN { (\S)(\v) } {\1\2\2} \l_syntax_str
+
+
+    % coloring for key words
+    \regex_replace_all:nnN { (\W)(int|float|long|struct|class|type|class|lambda|def|KeyError)(\W) } {\1 \cB\{ \c{slshape} \c{color}\cB\{ Cyan \cE\} \2 \cE\} \3 } \l_syntax_str
+    \regex_replace_all:nnN { (\W)(and|as|assert|break|continue|del|elif|alse|except|exec|finally|for|from|global|if|import|in|is|not|or|pass|print|raise|return|try|while|with|yield|return)(\W) } {\1 \cB\{ \c{color}\cB\{ Magenta \cE\} \2 \cE\} \3 } \l_syntax_str
+
+    % coloring for angle brackets and strings
+    \regex_replace_all:nnN { "(.*?)" } {\cB\{ \c{color}\cB\{ stringcolor \cE\} "\1" \cE\}} \l_syntax_str
+    \regex_replace_all:nnN { '(.*?)' } {\cB\{ \c{color}\cB\{ BurntOrange \cE\} '\1' \cE\}} \l_syntax_str
+
+    % coloring for comments
+    \regex_replace_all:nnN { (\#)(.*?)(\v) } {\cB\{ \c{color}\cB\{ OliveGreen \cE\} \1\2 \cE\} \3 } \l_syntax_str
+
+    % coloring for functions
+    \regex_replace_all:nnN { (\h|\.)([\w|\\\_]*?)(\h*?)(\( .*? \)) } {\1 \cB\{ \c{color}\cB\{ LimeGreen \cE\} \2 \cE\}\3\4} \l_syntax_str
+
+    }
+
+
+  }[\PackageError{syntax}{Undefined~option:~#1}{ }]%
+
+    \tl_set_rescan:Nno \l_syntax_tl
+      {
+        \int_set:Nn \tex_newlinechar:D { `\^^M }
+        \int_set:Nn \tex_endlinechar:D { `\^^M }
+      }
+      \l_syntax_str
+
+    \tl_use:N  \l_syntax_tl 
+  }
+\ExplSyntaxOff

@@ -1,0 +1,56 @@
+\documentclass{article}
+\usepackage{syntax}
+
+\setlength\parindent{0pt}
+
+\begin{document}
+
+\begin{center} \Large The {\tt syntax} Package Example\end{center}
+Here is some sample C++ code with basic highlighting:\\
+\\
+{\tt
+\syntax[c++]{
+/* 
+ * helloworld.cpp
+ * author: May Lynn Forssen
+ * date: December 16, 2013
+ */
+
+// my first program in C++
+
+#include <iostream>
+#define ZERO 0
+
+using namespace std;
+
+int main()
+{
+    for(int i = 0; i < 10; i++) {
+        cout << "Hello World\n";
+    }
+    return 0;
+}
+}
+}
+
+\vspace*{20pt}
+
+Here is a Python example:\\
+{\tt
+\syntax[python]{
+class memoize:
+
+  def __init__(self, function):
+    self.function = function
+    self.memoized = {}
+
+  def __call__(self, *args):
+    try:
+      return self.memoized[args]
+    except KeyError:
+      self.memoized[args] = self.function(*args)
+      return self.memoized[args]
+}
+}
+
+\end{document}
