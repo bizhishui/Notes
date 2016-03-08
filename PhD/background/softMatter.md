@@ -17,3 +17,15 @@
     v=\left(1+\Delta/4\pi\right)^{-3/2}
   \end{equation}
   ![Lien entre $v$ et $\Delta$](./src/parameters_relation.png)
+
+- \text{L'incompressibilit\'{e} surfacique}:
+  \begin{equation}
+    \nabla_s\cdotp\mathbf{V}=0\ \ \text{en}\ \ \mathbf{x}=\mathbf{x_m}
+  \end{equation}
+  \text{o\`u} $\nabla_s$ est le gradient surfacique et $\mathbf{x_m}$ \text{d\'esigne} un point de la menbrane.
+
+- [Helfrich](https://cours.espci.fr/site.php?id=29&fileid=829) bending energy:
+  \begin{equation}
+    F_k=\frac{\kappa}{2}\int_{S}\left(2H-C_0\right)^2dS
+  \end{equation}
+  whre $\kappa$ is bending modulus, $H,C$ is the mean and [spontaneous](https://tel.archives-ouvertes.fr/tel-00005981/document)($C=0$ \text{or} $1/R_0$) curvature.
