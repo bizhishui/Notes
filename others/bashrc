@@ -142,3 +142,4 @@ export PATH=/home/jinming/bin:$PATH
 
 #pandoc xelatex
 alias pandocCN="pandoc --template=$HOME/Templates/template.tex --latex-engine=xelatex"
+#alias pandocCN="pandoc --template=$HOME/Templates/default.latex --latex-engine=xelatex"
