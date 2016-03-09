@@ -1,6 +1,6 @@
 % Notes in learning Java
 % Jinming LYU
-% \today
+% 9 mars 2016
 
 # Java Serializable #
 序列化的过程就是对象写入字节流和从字节流中读取对象。将对象状态转换成字节流之后，可以用java.io包中的各种字节流类
