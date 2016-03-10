@@ -1,6 +1,6 @@
 % Some Notes for Soft Matter
 % Jinming LYU
-% \today 
+% 8 mars 2016
 
 # \text{V\'{e}sicule} #
 
@@ -58,10 +58,11 @@
     + $\gamma$: surface tensoin
     + $\mu_s(\mu_d)$: shear (dilational) surface viscosity
     + $\lambda=\frac{\mu^i}{\mu^e}$ is the viscosity contrast
-    + $\dot{\varepsilon}$ is the shear rate
+    + $\dot{\varepsilon}$ is the shear rate, ***it's called Shear_gamma for output directory name, gamma_dot for 
+    parameter in the class SimulationContext and Flow strenght in inputFile.txt***
     + $Ca=\frac{\mu^e \dot{\varepsilon}a}{\gamma}=\frac{\text{hydrodynamic stress}}{\text{the resistance of surface tension}}$ is the capillary (or Weber) number, where $a$ is the initial droplet radius
     + $Bq_s=\frac{\mu_s}{\mu^e a}$ and $Bq_d=\frac{\mu_d}{\mu^e a}$ are the dimensionless Boussinesq numbers, characterizing *shear* and *dilational* surface viscosity respectively. When $Bq_s=Bq_d$, this single quantity is abbreviated by the Boussinesq number $Bq$. ***A droplet with $Bq=0$ is said to be \'clean\'***.
-    + $\beta=(Bq)(Ca)=\frac{\mu \dot{\varepsilon}}{\gamma}=\frac{\text{surface viscosity}}{\text{tension}}$
+    + $\beta=(Bq)(Ca)=\frac{\mu_{s(d)} \dot{\varepsilon}}{\gamma}=\frac{\text{surface viscosity}}{\text{tension}}$
     + $\tau=\dot{\varepsilon}^{-1}$ is the characteristic time
     + $a$, the initial droplet radius (with initial sphere shape), is the characteristic length
     + $\mu^e \dot{\varepsilon}$ is used to undimensionalize pressure and membrane stress.
