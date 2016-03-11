@@ -12,5 +12,6 @@ final object? BTW, I think there are a little error about the index in one of th
 
 ## Le 10 mars 2016 ##
 - Is all the quantities are dimensionless numbers?
+    - `OUI`. The code solve the dimensionless equations.
 - As for the *Clean droplet in shear flow* in JFM 2016, when $Ca=1E-3$ (namely the flow strength) and $\gamma=1$, why
   the computation time decrese as I increse $\lambda$? (I've set the maximum compuational time as 50)
