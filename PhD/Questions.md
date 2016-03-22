@@ -15,3 +15,7 @@ final object? BTW, I think there are a little error about the index in one of th
     - `OUI`. The code solve the dimensionless equations.
 - As for the *Clean droplet in shear flow* in JFM 2016, when $Ca=1E-3$ (namely the flow strength) and $\gamma=1$, why
   the computation time decrese as I increse $\lambda$? (I've set the maximum compuational time as 50)
+
+## Le 22 mars 2016 ##
+- What is the physical meaning of dipole, quadruple, sextuple and octuple? (Sec. 2.2.7 Multipoles of Green’s functions)
+  The Physical meaning in aeroacoustic can be found [here](./refQuestion/空气动力性噪声.pdf)

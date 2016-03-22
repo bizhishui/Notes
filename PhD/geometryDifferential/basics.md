@@ -80,3 +80,8 @@
   也与参数变换无关，因此将其称为曲面的第二基本形式。它是有向距离$\delta (\Delta u,\Delta v)$在
   $\sqrt{(\Delta u)^2+(\Delta v)^2}\rightarrow 0$时作为无穷小的主要部份的两倍，即
   $$\text{\rom{2}}\approx 2\delta(du,dv).$$
+  
+- 曲面法曲率(P.155):\bfseries{正则参数曲面在任意一个固定点，其法曲率必在两个彼此正交的切方向上分别取最大值($\kappa_1$)和最小值($\kappa_2$).}
+  正则参数曲面在任意一个固定点，其法曲率取最大值和最小值的方向称为曲面在该点的主方向。
+  法曲率$\kappa_n(\theta)$有如下Euler公式:
+  $$\kappa_n(\theta)=\kappa_1 cos^2(\theta-\theta_0)+\kappa_2sin^2(\theta-\theta_0).$$
