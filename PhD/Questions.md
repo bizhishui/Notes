@@ -19,3 +19,10 @@ final object? BTW, I think there are a little error about the index in one of th
 ## Le 22 mars 2016 ##
 - What is the physical meaning of dipole, quadruple, sextuple and octuple? (Sec. 2.2.7 Multipoles of Green’s functions)
   The Physical meaning in aeroacoustic can be found [here](./refQuestion/空气动力性噪声.pdf)
+
+## Le 3 avril 2016 ##
+- In *velocityComputationByBEM.java*, line 1858, what dose 
+
+`Elements e = m.getFields().get(outFieldVelocity).getNodes()[i].getVertex().getElements().get(1);` 
+
+really means?
