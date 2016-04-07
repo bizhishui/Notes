@@ -35,4 +35,13 @@ really means?
   line 928?
 
 ## Le 7 avril 2016 ##
-- How is the fourth-order derivatiion is computed? By $f^{(4)}=\Sum N_i \alpha_i$ or computed with numerical methods, like FD.
+- How is the fourth-order derivatiion is computed? By $f^{(4)}=\sum N_i \alpha_i$ or computed with numerical methods, like FD.
+- The direct application of Differential Geometry is in the class `computeMembraneForcesByFEM`? And this class use membrane law
+  of soild mechanics to compute the force?
+- What dose field 8-11 mean in the method `computeViscoelasticStress` of class `computeMembraneForcesByFEM`?
+- In method `computeViscoelasticStress` of class `computeMembraneForcesByFEM`, is $x_0$ the cell's inner integration point?
+  The formulation for computing softobject volume and center? And also for the inertia matrix?
+- The differences among `pos`, `pos_ref` and `pos_lim`?
+- For the method `computeMembraneForcesViscousTension` in class `computeMembraneForcesByFEM`, why `inFieldVelocity`
+  is used to as an input variable?
+- The method `convertValueAtNodeInNodalValues` in class `SoftObject`.
