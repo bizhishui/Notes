@@ -26,3 +26,13 @@ final object? BTW, I think there are a little error about the index in one of th
 `Elements e = m.getFields().get(outFieldVelocity).getNodes()[i].getVertex().getElements().get(1);` 
 
 really means?
+
+## Le 5 avril 2016 ##
+- The functioning of `setOneRing()` method in `LoopElement.java`?
+- Why the method `computeGeometricParameters(Mesh m1, PrintWriter file, double time)` in `SimulateOneObjectInFlow.java` 
+  has run `i` and `k` loops.
+  And also, what dose `get(1)` means in `shape[l]*m1.getElements()[i].getOneRing()[l].getNodes().get(1).getDofValueAt(j)` in
+  line 928?
+
+## Le 7 avril 2016 ##
+- How is the fourth-order derivatiion is computed? By $f^{(4)}=\Sum N_i \alpha_i$ or computed with numerical methods, like FD.
