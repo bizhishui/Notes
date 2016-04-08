@@ -41,7 +41,11 @@ really means?
 - What dose field 8-11 mean in the method `computeViscoelasticStress` of class `computeMembraneForcesByFEM`?
 - In method `computeViscoelasticStress` of class `computeMembraneForcesByFEM`, is $x_0$ the cell's inner integration point?
   The formulation for computing softobject volume and center? And also for the inertia matrix?
-- The differences among `pos`, `pos_ref` and `pos_lim`?
 - For the method `computeMembraneForcesViscousTension` in class `computeMembraneForcesByFEM`, why `inFieldVelocity`
   is used to as an input variable?
 - The method `convertValueAtNodeInNodalValues` in class `SoftObject`.
+
+## Le 8 avril 2016 ##
+- How is the remeshing doing? However, it does not deals with 
+  possible needs for local mesh "refinements", i.e. nodes should concentrate in more complex regions while flat/simple
+  regions could be described with less nodes.
