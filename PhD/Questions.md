@@ -49,3 +49,7 @@ really means?
 - How is the remeshing doing? However, it does not deals with 
   possible needs for local mesh "refinements", i.e. nodes should concentrate in more complex regions while flat/simple
   regions could be described with less nodes.
+
+## Le 9 avril 2016 ##
+- `velocityComputation.java`中的`computeSingleLayer`是怎么运行的？
+  因为该抽象类中只含有方法声明，但是在其他方法中却调用了该方法。
