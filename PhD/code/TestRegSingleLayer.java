@@ -270,6 +270,7 @@ public class TestRegSingleLayer {
 		double oneOverR2;
 		double oneOverR3;
 		double R2;
+		double epsCrit = Math.sqrt(2*Math.PI/5.0/Math.pow(4.0, m.sc.Nsub*1.0));
 
 		//source position loops, r
 		for (int j=0;j<m.getElements().length;j++){ 
@@ -278,7 +279,8 @@ public class TestRegSingleLayer {
 				wk = quad.getWeightPoint(k);
 				shape_e = m.getElements(j).computeShapeFunctionAt(quad.getQuadraturePoint(k));
 				shape_e_der = m.getElements(j).computeShapeFunctionFirstDerivativesAt(quad.getQuadraturePoint(k));
-
+				//System.out.println("The shape func's length is "+shape_e.length);
+				
 				cleanDoubleArray(tksi);
 				cleanDoubleArray(teta);
 				cleanDoubleArray(coordinatesreal);
@@ -286,7 +288,12 @@ public class TestRegSingleLayer {
 
 				for (int l=0;l<shape_e.length;l++){
 					for (int n=0;n<coordinatesreal.length;n++){
+						//m.getElements(j).getOneRing(l): return the l-th Vertex of the j-th element at mesh m
+						//getNodes(1): return the 1-th node define on the vertex???
+						//getDofValues(n): Returns the n-th component of the dof (nodal values) values at the node
+						//coordinatesreal are the real coordinate at a Gauss quadrature point of a element, i.e., xi=Xij*Nj
 						coordinatesreal[n]+=shape_e[l]*m.getElements(j).getOneRing(l).getNodes(1).getDofValues(n);
+						//f is the real physical space force, i.e., f_lim
 						f[n]+=shape_e[l]*m.getElements(j).getOneRing(l).getNodes(inFieldForce).getDofValues(n);//inFieldForce=2
 
 						tksi[n]+=shape_e_der[l][0]*m.getElements(j).getOneRing(l).getNodes(1).getDofValues(n);
@@ -308,7 +315,8 @@ public class TestRegSingleLayer {
 				//wkg = wk*Math.sqrt(g);
 				wkg = wk*Math.sqrt(g)/pi8;
 
-				//target position loops, R
+				//target position (vertex) loops, R
+				//Any boundary source will influence all the vertex in this mesh
 				for (int i=0;i<Nnodes;i++){
 					x0 = xx0[i];
 
@@ -318,10 +326,10 @@ public class TestRegSingleLayer {
 
 					R2 = y[0]*y[0]+y[1]*y[1]+y[2]*y[2];
 					int isRegular;
-					if (Math.sqrt(y[0]*y[0]+y[1]*y[1]+y[2]*y[2])<1E-0) {
+					if (Math.sqrt(y[0]*y[0]+y[1]*y[1]+y[2]*y[2])<1.5*epsCrit) {
 						oneOverR =1./Math.sqrt(y[0]*y[0]+y[1]*y[1]+y[2]*y[2]+epsilon*epsilon);
 						isRegular = 0;
-						System.out.println("A node irregular.");
+						//System.out.println("A node irregular.");
 					} else {
 						oneOverR =1./Math.sqrt(y[0]*y[0]+y[1]*y[1]+y[2]*y[2]);
 						isRegular = 1;
@@ -1213,6 +1221,9 @@ public class TestRegSingleLayer {
 		//associate the mesh with the simulation context
 		m1.setSimulationContext(sc);
 		m1.computeCollocationMatrixNEW();
+		
+		System.out.println("Nb of elements "+m1.getElements().length);
+		System.out.println("Nb of nodes "+m1.getFields().get(0).getNodes().length);
 		
 		return m1;
 	}// end for prepare() method

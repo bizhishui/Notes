@@ -53,3 +53,18 @@ really means?
 ## Le 9 avril 2016 ##
 - `velocityComputation.java`中的`computeSingleLayer`是怎么运行的？
   因为该抽象类中只含有方法声明，但是在其他方法中却调用了该方法。
+
+## Le 20 avril 2016 ##
+- 其实对于最原始的Single-Layer积分项，对于我们当前程序所使用的积分方法，计算根本不存在奇异性（所以如何Regularized呢？）。
+  这是因为对应Green函数的target point为mesh的vertex，而source point 则离散分布于单元的高斯积分点！
+  二者在物理空间的距离实际上永远不可能为零。所以使用最原始的Green函数时，使用当前程序不需要对
+  奇异点（单元）进行判定，然后采用如同Pozrikidis使用的Cauchy PV方法。问题是为什么使用Alexander et al. (JCP, 2014)
+  的方法确能显著的提高计算精度（本质上不是减去了一个积分恒等式吗？所以改写后的与原始的应该是相等的！！！）。
+- For `computeShapeFunctionAt` in `LoopElement.java`, we can find that the shape function has already take the 
+  irregualr cell into consideration. Just take a good look at 
+
+  *x0[jj]+= shape[kk]\*e.getOneRing()[kk].getNodes().get(1).getDofValues()[jj];*
+
+  and 
+  
+  *coordinatesreal[n]+=shape_e[l]\*m.getElements(j).getOneRing(l).getNodes(1).getDofValues(n);*.
